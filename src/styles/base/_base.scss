@@ -6,7 +6,7 @@ html {
 
 body {
   margin: 0;
-
+  padding: 0;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,8 +21,8 @@ button:disabled {
 .is-active {
   font-weight: bold;
   color: red;
-  text-decoration: none;
+
 }
-.link {
+[class*="link"] {
   text-decoration: none;
 }

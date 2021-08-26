@@ -69,7 +69,7 @@ class ExpenseForm extends PureComponent {
       calendarFocused,
       error,
     } = this.state;
-    console.log(createdAt);
+    
     return (
       <div>
         {error && <p>{error}</p>}
