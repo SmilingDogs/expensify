@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import ExpenseDashboardPage from "../../ExpenseDashboard/ExpenseDashboard";
-import AddExpensePage from "../../AddExpensePage/AddExpensePage";
-import EditExpensePage from "../../EditExpensePage/EditExpensePage";
-import HelpPage from "../../HelpPage/HelpPage";
-import Page404 from "../Page404";
+import ExpenseDashboardPage from "../pages/ExpenseDashboard/ExpenseDashboard";
+import AddExpensePage from "../pages/AddExpensePage/AddExpensePage";
+import EditExpensePage from "../pages/EditExpensePage/EditExpensePage";
+import HelpPage from "../pages/HelpPage/HelpPage";
+import Page404 from "../pages/Page404/Page404";
 
 
 const AppRoutes = () => (
