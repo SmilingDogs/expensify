@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeExpense } from "../../store/expenses/actions";
 
-const ExpenseListItem = ({ description, amount, createdAt, id, remove }) => {
+const ExpenseListItem = ({ description, amount, createdAt, id, dispatch }) => {
+  // const dispatch = useDispatch();
 
   return (
     <div>
@@ -11,14 +13,10 @@ const ExpenseListItem = ({ description, amount, createdAt, id, remove }) => {
         <h3>{description}</h3>
       </Link>
       <p>{amount} - {createdAt}</p>
-      <button onClick={() => remove(id)}>Remove</button>
+      <button onClick={() => dispatch(removeExpense(id))}>Remove Expense</button>
     </div>
   );
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    remove: (id) => dispatch(removeExpense(id)),
-  }; //todo означает что при вызове функции remove со значением id, id передается в dispatch(removeExpense(id))
-};
-export default connect(null, mapDispatchToProps)(ExpenseListItem);
-//! обязательно писать connect(null, mapDispatchToProps) !!! иначе  - не работает
+
+export default connect()(ExpenseListItem);
+//! Pure connect() gives access to dispatch() too

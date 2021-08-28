@@ -1,4 +1,5 @@
 import { ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from "./types";
+//! Это объект state - expenses(массив)
 const initialExpensesState = [];
 
 //* expense = {
@@ -15,7 +16,7 @@ const reducer = (state = initialExpensesState, action) => {
       return [...state, action.payload];
 
     case REMOVE_EXPENSE:
-      // return state.filter(exp => exp.id !== action.id )
+      // return state.filter(exp => exp.id !== action.id ) destructure exp
       return state.filter(({ id }) => id !== action.payload);
 
     case EDIT_EXPENSE:

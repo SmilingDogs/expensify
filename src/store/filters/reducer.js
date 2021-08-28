@@ -6,6 +6,7 @@ import {
   SET_END_DATE,
 } from "./types";
 
+//! Это объект state - filters(объект)
 const initialFiltersState = {
   text: "",
   sortBy: "date",

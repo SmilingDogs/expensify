@@ -1,41 +1,42 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setTextFilter, sortByDate, sortByAmount} from "../../store/filters/actions";
+import {
+  setTextFilter,
+  sortByDate,
+  sortByAmount,
+} from "../../store/filters/actions";
 
-const ExpenseListFilters = ({dispatch, filters, selectSortingByDate, selectSortingByAmount}) => {
+const ExpenseListFilters = ({ filters, dispatch }) => {
   return (
     <div>
       <input
         type="text"
-        value={filters.text}
+        value={filters.text} //*reads the text filter value from Store
         onChange={(e) => {
-          dispatch(setTextFilter(e.target.value));
+          dispatch(setTextFilter(e.target.value)); //*writes the text filter value to Store
         }}
       />
-      <select onChange={(e) => {
-        if (e.target.value === 'date') {
-          selectSortingByDate()
-        }
-        else if (e.target.value === 'amount') {
-          selectSortingByAmount()
-        }
-      }}>
-        <option value='date'>Date</option>
-        <option value='amount'>Amount</option>
+      <select
+        value={filters.sortBy}
+        onChange={(e) => {
+          if (e.target.value === "date") {
+            dispatch(sortByDate());
+          } else if (e.target.value === "amount") {
+            dispatch(sortByAmount());
+          }
+        }}
+      >
+        <option value="date">Date</option>
+        <option value="amount">Amount</option>
       </select>
     </div>
   );
-} //todo чтобы у селектора работало onChange = e.target.value ==='somevalue , надо чтобы у <option value="somevalue"></option>
+}; //todo чтобы у селектора работало onChange = e.target.value ==='date' , надо чтобы у <option value="date"></option>
+//? connect(mapStateToProps) также дает доступ к dispatch(), т.е. mapDispatchToProps особо и не нужен...
 const mapStateToProps = (state) => {
   return {
     filters: state.filters,
-
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    selectSortingByDate: () => dispatch(sortByDate()),
-    selectSortingByAmount: () => dispatch(sortByAmount())
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
+
+export default connect(mapStateToProps)(ExpenseListFilters);

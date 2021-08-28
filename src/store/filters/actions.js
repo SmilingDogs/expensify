@@ -6,7 +6,7 @@ import {
   SORT_BY_DATE,
 } from "./types";
 //* Setting action-generators for filtersReducer
-
+                              //* if no argument is provided, text equals ""
 export const setTextFilter = (text = "") => ({
   type: SET_TEXT_FILTER,
   payload:text,
@@ -20,12 +20,12 @@ export const sortByDate = () => ({
   type: SORT_BY_DATE,
 });
 
-export const setStartDate = (start) => ({
+export const setStartDate = (startDate) => ({
   type: SET_START_DATE,
-  payload: start,
+  payload: startDate,
 });
 
-export const setEndDate = (end) => ({
+export const setEndDate = (endDate) => ({
   type: SET_END_DATE,
-  payload: end,
+  payload: endDate,
 });
