@@ -1,20 +1,20 @@
 import React from "react";
-import ExpenseForm from "../../components/ExpenseForm/ExpenseForm";
 import { connect } from "react-redux";
+import ExpenseForm from "../../components/ExpenseForm/ExpenseForm";
 import { addExpense } from "../../store/expenses/actions";
 
-const AddExpensePage = ({dispatch, history}) => {
+const AddExpensePage = ({ dispatch, history }) => {
   return (
     <div>
       <h2>Add Expense</h2>
-      <ExpenseForm onSubmit={(exp) => {
+      <ExpenseForm
+        onSubmit={(exp) => {
           dispatch(addExpense(exp));
-          history.push('/') //todo аналог <Redirect />
-
-      }}
+          history.push("/");
+        }}
       />
     </div>
   );
-}
+};
 export default connect()(AddExpensePage);
-//todo после conneсt() мы получаем доступ к props.dispatch() props.history() автоматически
+//todo после пустого conneсt() мы получаем доступ к props.dispatch()
