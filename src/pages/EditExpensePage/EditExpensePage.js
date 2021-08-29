@@ -35,3 +35,4 @@ const mapStateToProps = (state, { match }) => {
 };
 
 export default connect(mapStateToProps)(EditExpensePage);
+//! Pure connect() or connect(mapStateToProps) give access to dispatch() 

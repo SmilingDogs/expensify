@@ -12,6 +12,7 @@ const initialExpensesState = [];
 
 const reducer = (state = initialExpensesState, action) => {
   switch (action.type) {
+
     case ADD_EXPENSE:
       return [...state, action.payload];
 
@@ -23,7 +24,8 @@ const reducer = (state = initialExpensesState, action) => {
       return state.map((exp) =>
         exp.id === action.id ? { ...exp, ...action.updates } : exp
       ); //todo : exp - по сути значит - ничего не делать, if (exp.id !== action.id)
-    default:
+
+      default:
       return state;
   }
 };

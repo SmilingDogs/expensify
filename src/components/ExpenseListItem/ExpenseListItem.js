@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ExpenseListItem = ({ description, amount, createdAt, id, }) => {
@@ -14,5 +13,4 @@ const ExpenseListItem = ({ description, amount, createdAt, id, }) => {
   );
 };
 
-export default connect()(ExpenseListItem);
-//! Pure connect() gives access to dispatch() too
+export default ExpenseListItem;
