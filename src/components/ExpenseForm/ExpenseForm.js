@@ -10,6 +10,7 @@ console.log(now.format("Do MMM YYYY"));
 class ExpenseForm extends PureComponent {
   constructor(props) {
     super(props);
+
     const {expense} = this.props;
     this.state = {
       description: expense ? expense.description : '',
@@ -72,7 +73,7 @@ class ExpenseForm extends PureComponent {
   render() {
     const { createdAt, description, amount, note, calendarFocused, error } =
       this.state;
-
+    const {location} = this.props
     return (
       <div>
         {error && <p>{error}</p>}
@@ -109,7 +110,7 @@ class ExpenseForm extends PureComponent {
             ></textarea>
           </div>
           <div>
-            <button type="submit">Add Expense</button>
+            <button type="submit">{ location === 'edit' ? "Edit Expense" : "Add Expense" }</button>
           </div>
         </form>
       </div>
