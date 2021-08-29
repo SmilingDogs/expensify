@@ -71,9 +71,8 @@ class ExpenseForm extends PureComponent {
   };
 
   render() {
-    const { createdAt, description, amount, note, calendarFocused, error } =
-      this.state;
-    const {location} = this.props
+    const { createdAt, description, amount, note, calendarFocused, error } = this.state;
+    const {location} = this.props;
     return (
       <div>
         {error && <p>{error}</p>}
